@@ -1,0 +1,8 @@
+task 1: FAIL in 7 steps, 11273 tokens (agent 10726 + controller 547), redirects 0, newly pruned -
+task 2: FAIL in 12 steps, 23014 tokens (agent 21384 + controller 1630), redirects 0, newly pruned -
+task 3: FAIL in 12 steps, 25956 tokens (agent 24099 + controller 1857), redirects 0, newly pruned -
+state: /private/tmp/claude-501/-Users-aayush--claude-spares-spare-0tHgFM/b88f6668-bc40-4ddf-8e63-30a1b35c50a0/scratchpad/verify/oll-home/a232c1ae6eb8
+exit=0
+task 13: FAIL in 20 steps, 33191 tokens (agent 32429 + controller 762), redirects 1, newly pruned -
+state: /private/tmp/claude-501/-Users-aayush--claude-spares-spare-0tHgFM/b88f6668-bc40-4ddf-8e63-30a1b35c50a0/scratchpad/verify/oll13-home/31f6945842aa
+exit=0

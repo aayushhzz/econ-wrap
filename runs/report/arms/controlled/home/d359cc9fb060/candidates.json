@@ -1,0 +1,82 @@
+{
+  "pytest-requires-pythonpath-src": {
+    "fact": "Tests must be run from the repo root with PYTHONPATH=src set, because the inventory package lives under src/ and is not importable otherwise (e.g. `PYTHONPATH=src python -m pytest -q tests/...`).",
+    "confirm": "PYTHONPATH=src\\s+python\\s+-m\\s+pytest",
+    "proposed_in": 1,
+    "confirmations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 3
+  },
+  "make-fixtures-before-tests": {
+    "fact": "Run `make fixtures` before running the test suite; the tests failed with FileNotFoundError until the fixtures target had been run.",
+    "confirm": "make\\s+fixtures",
+    "proposed_in": 1,
+    "confirmations": [
+      1
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  },
+  "project-formatter-is-make-fmt": {
+    "fact": "The project formatter is invoked via `make fmt` (which runs scripts/fmt.py), and CI's style check fails unless src/ has been formatted with it, so run `make fmt` after editing files under src/.",
+    "confirm": "make\\s+fmt",
+    "proposed_in": 1,
+    "confirmations": [
+      1,
+      3
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  },
+  "style-test-needs-formatted-src": {
+    "fact": "tests/test_style.py fails with 'src/ is not formatted with the project formatter' whenever src/ has unformatted edits, so run the formatter before running that test.",
+    "confirm": "scripts/fmt\\.py.*&&.*test_style|test_style",
+    "proposed_in": 4,
+    "confirmations": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "contradictions": [
+      1,
+      2
+    ],
+    "status": "candidate"
+  },
+  "gen-fixtures-script": {
+    "fact": "Run `python scripts/gen_fixtures.py` before the test suite to generate tests/fixtures/catalog.json; tests failed with FileNotFoundError until this had run.",
+    "confirm": "python scripts/gen_fixtures\\.py",
+    "proposed_in": 5,
+    "confirmations": [
+      2,
+      5,
+      6
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 6
+  },
+  "project-formatter-script": {
+    "fact": "The project formatter is `python scripts/fmt.py`; run it after editing files under src/, since CI's style check fails on unformatted src/.",
+    "confirm": "python scripts/fmt\\.py",
+    "proposed_in": 5,
+    "confirmations": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 5
+  }
+}

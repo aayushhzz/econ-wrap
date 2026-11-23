@@ -1,0 +1,38 @@
+[baseline] task 1: PASS, 12 steps, 47205 tokens (controller 0)
+[prune-only] task 1: PASS, 12 steps, 47215 tokens (controller 0)
+[guard-only] task 1: fail, 12 steps, 45390 tokens (controller 0)
+[skills-only] task 1: PASS, 11 steps, 45744 tokens (controller 2398)
+[controlled] task 1: PASS, 12 steps, 52077 tokens (controller 5637)
+[prune-only] task 2: PASS, 11 steps, 43614 tokens (controller 0)
+[baseline] task 2: fail, 12 steps, 48656 tokens (controller 0)
+[skills-only] task 2: fail, 12 steps, 48870 tokens (controller 2708)
+[guard-only] task 2: PASS, 12 steps, 53342 tokens (controller 3474)
+[controlled] task 2: PASS, 12 steps, 56780 tokens (controller 6552)
+[prune-only] task 3: PASS, 12 steps, 54302 tokens (controller 0)
+[baseline] task 3: PASS, 12 steps, 49596 tokens (controller 0)
+[skills-only] task 3: PASS, 12 steps, 55321 tokens (controller 2637)
+[guard-only] task 3: fail, 12 steps, 53533 tokens (controller 3340)
+[prune-only] task 4: PASS, 9 steps, 32846 tokens (controller 0)
+[baseline] task 4: PASS, 12 steps, 45730 tokens (controller 0)
+[controlled] task 3: PASS, 12 steps, 56683 tokens (controller 5968)
+[skills-only] task 4: PASS, 11 steps, 44298 tokens (controller 2818)
+[guard-only] task 4: PASS, 10 steps, 38194 tokens (controller 1621)
+[prune-only] task 5: PASS, 12 steps, 38765 tokens (controller 0)
+[controlled] task 4: PASS, 9 steps, 36812 tokens (controller 4476)
+[baseline] task 5: PASS, 12 steps, 48062 tokens (controller 0)
+[skills-only] task 5: PASS, 12 steps, 51561 tokens (controller 3114)
+[prune-only] task 6: PASS, 12 steps, 38395 tokens (controller 0)
+[guard-only] task 5: PASS, 12 steps, 53977 tokens (controller 3187)
+[baseline] task 6: PASS, 12 steps, 47045 tokens (controller 0)
+[controlled] task 5: PASS, 12 steps, 44725 tokens (controller 3410)
+[skills-only] task 6: PASS, 11 steps, 46079 tokens (controller 3057)
+[guard-only] task 6: PASS, 12 steps, 52347 tokens (controller 3229)
+[controlled] task 6: PASS, 9 steps, 30634 tokens (controller 3002)
+baseline     passed 5/6  total tokens 286,294
+controlled   passed 6/6  total tokens 277,711
+skills-only  passed 5/6  total tokens 291,873
+prune-only   passed 6/6  total tokens 255,137
+guard-only   passed 4/6  total tokens 296,783
+break-even task index (controlled vs baseline): 6
+wrote /Users/aayush/Desktop/Projects/econ-wrap/runs/report/report.html
+exit=0

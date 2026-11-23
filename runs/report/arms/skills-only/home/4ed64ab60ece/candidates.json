@@ -1,0 +1,51 @@
+{
+  "pytest-needs-pythonpath-src": {
+    "fact": "Tests in this repository must be run with PYTHONPATH=src set, for example `PYTHONPATH=src python -m pytest -q`, because running pytest without it fails with ImportError.",
+    "confirm": "PYTHONPATH=src\\s+python\\s+-m\\s+pytest",
+    "proposed_in": 1,
+    "confirmations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 3
+  },
+  "make-fixtures-before-tests": {
+    "fact": "Run `make fixtures` before the test suite, since tests such as tests/test_style.py fail with FileNotFoundError until the fixtures are generated.",
+    "confirm": "make\\s+fixtures",
+    "proposed_in": 1,
+    "confirmations": [
+      1
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  },
+  "project-formatter-make-fmt": {
+    "fact": "Format src/ with `make fmt`, which runs scripts/fmt.py; CI checks that src/ is formatted with this project formatter and the style test fails otherwise.",
+    "confirm": "make\\s+fmt",
+    "proposed_in": 1,
+    "confirmations": [
+      1
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  },
+  "gen-fixtures-script": {
+    "fact": "Run `python scripts/gen_fixtures.py` before the test suite, since tests such as tests/test_style.py fail with FileNotFoundError until the fixtures are generated.",
+    "confirm": "python scripts/gen_fixtures\\.py",
+    "proposed_in": 5,
+    "confirmations": [
+      2,
+      5,
+      6
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 6
+  }
+}

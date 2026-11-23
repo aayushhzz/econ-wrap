@@ -1,0 +1,44 @@
+[
+  {
+    "sku": "A100",
+    "name": "bolt",
+    "category": "hardware",
+    "price": 0.25,
+    "qty": 400
+  },
+  {
+    "sku": "A200",
+    "name": "nut",
+    "category": "hardware",
+    "price": 0.1,
+    "qty": 3
+  },
+  {
+    "sku": "B100",
+    "name": "hammer",
+    "category": "tools",
+    "price": 12.5,
+    "qty": 7
+  },
+  {
+    "sku": "B200",
+    "name": "saw",
+    "category": "tools",
+    "price": 24.0,
+    "qty": 2
+  },
+  {
+    "sku": "C100",
+    "name": "glue",
+    "category": "supplies",
+    "price": 3.75,
+    "qty": 12
+  },
+  {
+    "sku": "C200",
+    "name": "tape",
+    "category": "supplies",
+    "price": 2.0,
+    "qty": 5
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "tools": [
+    "read_file",
+    "write_file",
+    "replace_in_file",
+    "run_shell",
+    "list_dir",
+    "grep",
+    "finish"
+  ],
+  "pruned": {
+    "http_get": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "sql_query": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "image_resize": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "send_email": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "translate_text": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "restored_after": 0,
+  "restores": []
+}

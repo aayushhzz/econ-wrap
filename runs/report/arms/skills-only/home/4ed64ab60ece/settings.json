@@ -1,0 +1,17 @@
+{
+  "tools": [
+    "read_file",
+    "write_file",
+    "replace_in_file",
+    "run_shell",
+    "list_dir",
+    "grep",
+    "http_get",
+    "sql_query",
+    "image_resize",
+    "send_email",
+    "translate_text",
+    "finish"
+  ],
+  "manual": "# repository manual, learned from prior sessions in this repository\n- Tests in this repository must be run with PYTHONPATH=src set, for example `PYTHONPATH=src python -m pytest -q`, because running pytest without it fails with ImportError.\n"
+}

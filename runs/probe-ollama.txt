@@ -1,0 +1,3 @@
+task 1: FAIL in 4 steps, 5731 tokens (agent 5731 + controller 0), redirects 0, newly pruned -
+state: runs/probe-ollama/home/4df767188603
+exit=0

@@ -1,0 +1,36 @@
+{
+  "pythonpath-src-for-tests": {
+    "fact": "Tests in this repository import the `src` package, so run pytest with `PYTHONPATH=src python -m pytest` rather than bare `python -m pytest`, which fails with an ImportError.",
+    "confirm": "PYTHONPATH=src python -m pytest",
+    "proposed_in": 1,
+    "confirmations": [
+      1,
+      2,
+      3
+    ],
+    "contradictions": [],
+    "status": "promoted",
+    "promoted_after_session": 3
+  },
+  "make-fixtures-before-tests": {
+    "fact": "Test fixtures are not present by default; run `make fixtures` before running the test suite, or tests fail with FileNotFoundError under tests/fixtures.",
+    "confirm": "make fixtures",
+    "proposed_in": 1,
+    "confirmations": [
+      1,
+      2
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  },
+  "make-fmt-formatter": {
+    "fact": "The project formatter is run with `make fmt` (backed by scripts/fmt.py), and CI checks formatting of src, so use it for formatting changes.",
+    "confirm": "make fmt",
+    "proposed_in": 1,
+    "confirmations": [
+      1
+    ],
+    "contradictions": [],
+    "status": "candidate"
+  }
+}

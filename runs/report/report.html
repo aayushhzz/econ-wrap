@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>econ cost report</title>
+<style>
+:root { --bg:#fbfbfa; --fg:#1d1d1f; --muted:#6b6b70; --line:#e3e3e0; --card:#fff;
+  --c-base:#8a8a8f; --c-ctrl:#2563eb; --c-a1:#d97706; --c-a2:#059669; --c-a3:#c026d3; --pass:#e7f6ec; --fail:#fdecec; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#141416; --fg:#ececee; --muted:#9a9aa2;
+  --line:#2c2c31; --card:#1c1c20; --c-base:#9a9aa2; --c-ctrl:#60a5fa; --c-a1:#fbbf24; --c-a2:#34d399; --c-a3:#e879f9;
+  --pass:#16301f; --fail:#3a1b1b; } }
+body { background:var(--bg); color:var(--fg); font:15px/1.5 -apple-system, system-ui, sans-serif; margin:0; }
+main { max-width:980px; margin:0 auto; padding:24px 16px 64px; }
+h1 { font-size:22px; margin:0 0 4px; } h2 { font-size:17px; margin:32px 0 8px; }
+.meta { color:var(--muted); font-size:13px; } .headline { font-size:17px; margin:16px 0; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; overflow-x:auto; }
+svg { width:100%; height:auto; display:block; } .grid { stroke:var(--line); }
+.ax { fill:var(--muted); font-size:11px; } .lab { font-size:12px; font-weight:600; }
+table { border-collapse:collapse; width:100%; font-size:13px; } th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--muted); font-weight:600; } td.pass { background:var(--pass); } td.fail { background:var(--fail); }
+.sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; }
+code { font-size:12px; } small { color:var(--muted); }
+</style></head><body><main>
+<h1>Black-box cost control: baseline vs controlled</h1>
+<div class="meta">backend=claude agent_model=haiku small_model=haiku tasks=1-6 max_steps=12</div>
+<p class="headline">Break-even task index (controlled vs baseline): <b>6</b></p>
+<div class="card"><svg viewBox="0 0 720 340" role="img" aria-label="Cumulative tokens by task index">
+<line x1="70" x2="590" y1="300.0" y2="300.0" class="grid"/>
+<text x="62" y="304.0" class="ax" text-anchor="end">0</text>
+<line x1="70" x2="590" y1="230.0" y2="230.0" class="grid"/>
+<text x="62" y="234.0" class="ax" text-anchor="end">80,131</text>
+<line x1="70" x2="590" y1="160.0" y2="160.0" class="grid"/>
+<text x="62" y="164.0" class="ax" text-anchor="end">160,262</text>
+<line x1="70" x2="590" y1="90.0" y2="90.0" class="grid"/>
+<text x="62" y="94.0" class="ax" text-anchor="end">240,394</text>
+<line x1="70" x2="590" y1="20.0" y2="20.0" class="grid"/>
+<text x="62" y="24.0" class="ax" text-anchor="end">320,525</text>
+<text x="70.0" y="318" class="ax" text-anchor="middle">1</text>
+<text x="174.0" y="318" class="ax" text-anchor="middle">2</text>
+<text x="278.0" y="318" class="ax" text-anchor="middle">3</text>
+<text x="382.0" y="318" class="ax" text-anchor="middle">4</text>
+<text x="486.0" y="318" class="ax" text-anchor="middle">5</text>
+<text x="590.0" y="318" class="ax" text-anchor="middle">6</text>
+<text x="330" y="336" class="ax" text-anchor="middle">task index</text>
+<polyline points="70.0,258.8 174.0,216.3 278.0,172.9 382.0,133.0 486.0,91.0 590.0,49.9" fill="none" stroke="var(--c-base)" stroke-width="3" />
+<circle cx="70.0" cy="258.8" r="3.5" fill="var(--c-base)"><title>baseline task 1: 47,205</title></circle>
+<circle cx="174.0" cy="216.3" r="3.5" fill="var(--c-base)"><title>baseline task 2: 95,861</title></circle>
+<circle cx="278.0" cy="172.9" r="3.5" fill="var(--c-base)"><title>baseline task 3: 145,457</title></circle>
+<circle cx="382.0" cy="133.0" r="3.5" fill="var(--c-base)"><title>baseline task 4: 191,187</title></circle>
+<circle cx="486.0" cy="91.0" r="3.5" fill="var(--c-base)"><title>baseline task 5: 239,249</title></circle>
+<circle cx="590.0" cy="49.9" r="3.5" fill="var(--c-base)"><title>baseline task 6: 286,294</title></circle>
+<polyline points="70.0,254.5 174.0,204.9 278.0,155.4 382.0,123.2 486.0,84.2 590.0,57.4" fill="none" stroke="var(--c-ctrl)" stroke-width="3" />
+<circle cx="70.0" cy="254.5" r="3.5" fill="var(--c-ctrl)"><title>controlled task 1: 52,077</title></circle>
+<circle cx="174.0" cy="204.9" r="3.5" fill="var(--c-ctrl)"><title>controlled task 2: 108,857</title></circle>
+<circle cx="278.0" cy="155.4" r="3.5" fill="var(--c-ctrl)"><title>controlled task 3: 165,540</title></circle>
+<circle cx="382.0" cy="123.2" r="3.5" fill="var(--c-ctrl)"><title>controlled task 4: 202,352</title></circle>
+<circle cx="486.0" cy="84.2" r="3.5" fill="var(--c-ctrl)"><title>controlled task 5: 247,077</title></circle>
+<circle cx="590.0" cy="57.4" r="3.5" fill="var(--c-ctrl)"><title>controlled task 6: 277,711</title></circle>
+<polyline points="70.0,260.0 174.0,217.3 278.0,169.0 382.0,130.3 486.0,85.3 590.0,45.0" fill="none" stroke="var(--c-a1)" stroke-width="1.6" stroke-dasharray="5 4"/>
+<circle cx="70.0" cy="260.0" r="2.5" fill="var(--c-a1)"><title>skills-only task 1: 45,744</title></circle>
+<circle cx="174.0" cy="217.3" r="2.5" fill="var(--c-a1)"><title>skills-only task 2: 94,614</title></circle>
+<circle cx="278.0" cy="169.0" r="2.5" fill="var(--c-a1)"><title>skills-only task 3: 149,935</title></circle>
+<circle cx="382.0" cy="130.3" r="2.5" fill="var(--c-a1)"><title>skills-only task 4: 194,233</title></circle>
+<circle cx="486.0" cy="85.3" r="2.5" fill="var(--c-a1)"><title>skills-only task 5: 245,794</title></circle>
+<circle cx="590.0" cy="45.0" r="2.5" fill="var(--c-a1)"><title>skills-only task 6: 291,873</title></circle>
+<polyline points="70.0,258.8 174.0,220.7 278.0,173.2 382.0,144.5 486.0,110.7 590.0,77.1" fill="none" stroke="var(--c-a2)" stroke-width="1.6" stroke-dasharray="5 4"/>
+<circle cx="70.0" cy="258.8" r="2.5" fill="var(--c-a2)"><title>prune-only task 1: 47,215</title></circle>
+<circle cx="174.0" cy="220.7" r="2.5" fill="var(--c-a2)"><title>prune-only task 2: 90,829</title></circle>
+<circle cx="278.0" cy="173.2" r="2.5" fill="var(--c-a2)"><title>prune-only task 3: 145,131</title></circle>
+<circle cx="382.0" cy="144.5" r="2.5" fill="var(--c-a2)"><title>prune-only task 4: 177,977</title></circle>
+<circle cx="486.0" cy="110.7" r="2.5" fill="var(--c-a2)"><title>prune-only task 5: 216,742</title></circle>
+<circle cx="590.0" cy="77.1" r="2.5" fill="var(--c-a2)"><title>prune-only task 6: 255,137</title></circle>
+<polyline points="70.0,260.3 174.0,213.8 278.0,167.0 382.0,133.6 486.0,86.5 590.0,40.7" fill="none" stroke="var(--c-a3)" stroke-width="1.6" stroke-dasharray="5 4"/>
+<circle cx="70.0" cy="260.3" r="2.5" fill="var(--c-a3)"><title>guard-only task 1: 45,390</title></circle>
+<circle cx="174.0" cy="213.8" r="2.5" fill="var(--c-a3)"><title>guard-only task 2: 98,732</title></circle>
+<circle cx="278.0" cy="167.0" r="2.5" fill="var(--c-a3)"><title>guard-only task 3: 152,265</title></circle>
+<circle cx="382.0" cy="133.6" r="2.5" fill="var(--c-a3)"><title>guard-only task 4: 190,459</title></circle>
+<circle cx="486.0" cy="86.5" r="2.5" fill="var(--c-a3)"><title>guard-only task 5: 244,436</title></circle>
+<circle cx="590.0" cy="40.7" r="2.5" fill="var(--c-a3)"><title>guard-only task 6: 296,783</title></circle>
+<text x="598" y="44.7" class="lab" fill="var(--c-a3)">guard-only</text>
+<text x="598" y="58.7" class="lab" fill="var(--c-a1)">skills-only</text>
+<text x="598" y="72.7" class="lab" fill="var(--c-base)">baseline</text>
+<text x="598" y="86.7" class="lab" fill="var(--c-ctrl)">controlled</text>
+<text x="598" y="100.7" class="lab" fill="var(--c-a2)">prune-only</text>
+</svg></div>
+<h2>Arms</h2>
+<div class="card"><table><tr><th>arm</th><th>passed</th><th>total tokens</th><th>controller tokens</th><th>notional cache-aware $</th><th>tokens vs baseline</th><th>break-even task</th><th>redirects</th></tr><tr><td><span class='sw' style='background:var(--c-base)'></span>baseline</td><td>5 / 6</td><td>286,294</td><td>0</td><td>$0.0390</td><td>-</td><td>-</td><td>0</td></tr><tr><td><span class='sw' style='background:var(--c-ctrl)'></span>controlled</td><td>6 / 6</td><td>277,711</td><td>29,045</td><td>$0.0429</td><td>-3.0%</td><td>6</td><td>0</td></tr><tr><td><span class='sw' style='background:var(--c-a1)'></span>skills-only</td><td>5 / 6</td><td>291,873</td><td>16,732</td><td>$0.0418</td><td>+1.9%</td><td>not reached</td><td>0</td></tr><tr><td><span class='sw' style='background:var(--c-a2)'></span>prune-only</td><td>6 / 6</td><td>255,137</td><td>0</td><td>$0.0379</td><td>-10.9%</td><td>2</td><td>0</td></tr><tr><td><span class='sw' style='background:var(--c-a3)'></span>guard-only</td><td>4 / 6</td><td>296,783</td><td>14,851</td><td>$0.0410</td><td>+3.7%</td><td>not reached</td><td>0</td></tr></table></div>
+<h2>Per task (tokens incl. controller overhead; green = pytest check passed)</h2>
+<div class="card"><table><tr><th>index</th><th>baseline</th><th>controlled</th><th>skills-only</th><th>prune-only</th><th>guard-only</th></tr><tr><td>1 (task 1)</td><td class='pass'>47,205<br><small>12 steps</small></td><td class='pass'>52,077<br><small>12 steps</small></td><td class='pass'>45,744<br><small>11 steps</small></td><td class='pass'>47,215<br><small>12 steps</small></td><td class='fail'>45,390<br><small>12 steps</small></td></tr><tr><td>2 (task 2)</td><td class='fail'>48,656<br><small>12 steps</small></td><td class='pass'>56,780<br><small>12 steps</small></td><td class='fail'>48,870<br><small>12 steps</small></td><td class='pass'>43,614<br><small>11 steps</small></td><td class='pass'>53,342<br><small>12 steps</small></td></tr><tr><td>3 (task 3)</td><td class='pass'>49,596<br><small>12 steps</small></td><td class='pass'>56,683<br><small>12 steps</small></td><td class='pass'>55,321<br><small>12 steps</small></td><td class='pass'>54,302<br><small>12 steps</small></td><td class='fail'>53,533<br><small>12 steps</small></td></tr><tr><td>4 (task 4)</td><td class='pass'>45,730<br><small>12 steps</small></td><td class='pass'>36,812<br><small>9 steps</small></td><td class='pass'>44,298<br><small>11 steps</small></td><td class='pass'>32,846<br><small>9 steps</small></td><td class='pass'>38,194<br><small>10 steps</small></td></tr><tr><td>5 (task 5)</td><td class='pass'>48,062<br><small>12 steps</small></td><td class='pass'>44,725<br><small>12 steps</small></td><td class='pass'>51,561<br><small>12 steps</small></td><td class='pass'>38,765<br><small>12 steps</small></td><td class='pass'>53,977<br><small>12 steps</small></td></tr><tr><td>6 (task 6)</td><td class='pass'>47,045<br><small>12 steps</small></td><td class='pass'>30,634<br><small>9 steps</small></td><td class='pass'>46,079<br><small>11 steps</small></td><td class='pass'>38,395<br><small>12 steps</small></td><td class='pass'>52,347<br><small>12 steps</small></td></tr></table></div>
+<h2>Micro-skill ledger (controlled arm)</h2>
+<p class="meta">A fact reaches skills.md only after its confirm regex matched a command that held in 3 or more distinct sessions.</p>
+<div class="card"><table><tr><th>id</th><th>fact</th><th>detector</th><th>confirming sessions</th><th>status</th></tr><tr><td><code>pytest-requires-pythonpath-src</code></td><td>Tests must be run from the repo root with PYTHONPATH=src set, because the inventory package lives under src/ and is not importable otherwise (e.g. `PYTHONPATH=src python -m pytest -q tests/...`).</td><td><code>PYTHONPATH=src\s+python\s+-m\s+pytest</code></td><td>1, 2, 3, 4, 5, 6</td><td>promoted after session 3</td></tr><tr><td><code>project-formatter-script</code></td><td>The project formatter is `python scripts/fmt.py`; run it after editing files under src/, since CI&#x27;s style check fails on unformatted src/.</td><td><code>python scripts/fmt\.py</code></td><td>2, 4, 5, 6</td><td>promoted after session 5</td></tr><tr><td><code>gen-fixtures-script</code></td><td>Run `python scripts/gen_fixtures.py` before the test suite to generate tests/fixtures/catalog.json; tests failed with FileNotFoundError until this had run.</td><td><code>python scripts/gen_fixtures\.py</code></td><td>2, 5, 6</td><td>promoted after session 6</td></tr><tr><td><code>make-fixtures-before-tests</code></td><td>Run `make fixtures` before running the test suite; the tests failed with FileNotFoundError until the fixtures target had been run.</td><td><code>make\s+fixtures</code></td><td>1</td><td>candidate</td></tr><tr><td><code>project-formatter-is-make-fmt</code></td><td>The project formatter is invoked via `make fmt` (which runs scripts/fmt.py), and CI&#x27;s style check fails unless src/ has been formatted with it, so run `make fmt` after editing files under src/.</td><td><code>make\s+fmt</code></td><td>1, 3</td><td>candidate</td></tr><tr><td><code>style-test-needs-formatted-src</code></td><td>tests/test_style.py fails with &#x27;src/ is not formatted with the project formatter&#x27; whenever src/ has unformatted edits, so run the formatter before running that test.</td><td><code>scripts/fmt\.py.*&amp;&amp;.*test_style|test_style</code></td><td>3, 4, 5, 6</td><td>candidate; contradicted in sessions 1, 2</td></tr></table></div>
+<h2>Pruned tools</h2>
+<div class="card"><table><tr><th>arm</th><th>tool</th><th>justification</th></tr><tr><td>controlled</td><td><code>http_get</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>controlled</td><td><code>image_resize</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>controlled</td><td><code>send_email</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>controlled</td><td><code>sql_query</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>controlled</td><td><code>translate_text</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>grep</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>http_get</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>image_resize</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>send_email</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>sql_query</code></td><td>unused in sessions 1, 2, 3, 4</td></tr><tr><td>prune-only</td><td><code>translate_text</code></td><td>unused in sessions 1, 2, 3, 4</td></tr></table></div>
+<h2>Loop-guard redirects</h2>
+<div class="card"><table><tr><th>arm</th><th>session</th><th>after step</th><th>injected text</th><th>steps run afterwards</th></tr><tr><td colspan=5>none</td></tr></table></div>
+</main></body></html>

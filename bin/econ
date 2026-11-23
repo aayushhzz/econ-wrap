@@ -1,0 +1,4 @@
+#!/bin/sh
+# Runs the stdlib-only controller with the project venv's python (the toy repo's checks need its pytest).
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHONPATH="$ROOT" exec "$ROOT/.venv/bin/python" -m econ "$@"
